@@ -1,0 +1,206 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>The Dapper Shack Barbershop · West Little Rock</title>
+<meta name="description" content="Haircuts, fades, line-ups and beard work at 301 N Shackleford Rd, Suite 109, Little Rock. Call or text 501-414-7628.">
+<meta name="theme-color" content="#12332B">
+<meta property="og:title" content="The Dapper Shack Barbershop">
+<meta property="og:description" content="Haircuts, fades and beard work on Shackleford Road, Little Rock.">
+<meta property="og:image" content="https://dapper-shack-preview.vercel.app/img/hero.jpg">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%2312332B'/><text x='16' y='23' font-size='20' text-anchor='middle' fill='%23C9A24A' font-family='Georgia' font-style='italic'>D</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,600;1,6..96,400&family=DM+Mono:wght@400;500&family=Instrument+Sans:wght@400;600&display=swap" rel="stylesheet">
+<link rel="preload" as="image" href="img/hero.jpg">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BarberShop","name":"The Dapper Shack Barbershop","telephone":"+1-501-414-7628","address":{"@type":"PostalAddress","streetAddress":"301 N Shackleford Rd, Suite 109","addressLocality":"Little Rock","addressRegion":"AR","addressCountry":"US"}}</script>
+<style>
+:root{--bottle:#12332B;--bottle2:#0c2620;--brass:#C9A24A;--linen:#EEE9DE;--paper:#F6F2EA;--ink:#0E0E0E;--ox:#6E1F24;--mute:#b9c6bf;--s1:8px;--s2:16px;--s3:24px;--s4:48px;--s5:104px;--max:1200px}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth;scroll-padding-top:84px}
+body{background:var(--paper);color:var(--ink);font:400 17px/1.65 "Instrument Sans",system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%}
+a{color:inherit}
+a:focus-visible{outline:2px solid var(--brass);outline-offset:4px}
+.serif{font-family:"Bodoni Moda",Georgia,serif;font-weight:400}
+.mono{font:500 12px/1.4 "DM Mono",monospace;letter-spacing:.14em;text-transform:uppercase}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 var(--s3)}
+.ribbon{background:#000;color:#9aa;font:400 11px "DM Mono",monospace;text-align:center;padding:7px var(--s2)}
+/* pole rail */
+.rail{position:fixed;left:0;top:0;bottom:0;width:10px;z-index:40;background:repeating-linear-gradient(135deg,var(--ox) 0 12px,var(--linen) 12px 24px,var(--bottle) 24px 36px,var(--linen) 36px 48px);background-size:100% 136px;animation:spin 5s linear infinite}
+@keyframes spin{to{background-position:0 136px}}
+/* header */
+.top{position:sticky;top:0;z-index:30;background:rgba(18,51,43,.95);backdrop-filter:blur(8px);color:var(--linen);border-bottom:1px solid rgba(201,162,74,.25)}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;height:72px}
+.logo{font-size:24px;text-decoration:none}.logo i{color:var(--brass)}
+.nav{display:flex;gap:40px;align-items:center}
+.nav a{text-decoration:none;color:var(--mute)}.nav a:hover{color:var(--linen)}
+.book{background:var(--brass);color:var(--ink)!important;padding:12px 20px}
+/* hero */
+.hero{background:var(--bottle);color:var(--linen);display:grid;grid-template-columns:1.15fr .85fr;min-height:min(88vh,800px)}
+.hero-copy{padding:var(--s5) var(--s4) var(--s4) max(var(--s3),calc((100vw - var(--max))/2 + var(--s3)));display:flex;flex-direction:column;justify-content:space-between;gap:var(--s4)}
+.hero .mono{color:var(--brass)}
+h1{font-size:clamp(64px,9vw,144px);line-height:.88;letter-spacing:-.025em;margin-top:var(--s3)}
+h1 i{color:var(--brass)}
+.lede{max-width:34ch;font-size:20px;color:var(--mute);margin-top:var(--s3)}
+.cta{display:flex;flex-wrap:wrap;gap:var(--s3);align-items:center;margin-top:var(--s4)}
+.btn{background:var(--brass);color:var(--ink);text-decoration:none;font:500 14px "DM Mono",monospace;letter-spacing:.08em;text-transform:uppercase;padding:18px 26px;transition:background .2s}
+.btn:hover{background:#d8b45e}
+.plain{font:500 14px "DM Mono",monospace;text-underline-offset:6px;text-decoration-color:var(--brass)}
+.facts{display:grid;grid-template-columns:repeat(3,auto);gap:var(--s4);justify-content:start;border-top:1px solid rgba(238,233,222,.18);padding-top:var(--s3)}
+.facts b{display:block;font-family:"Bodoni Moda",serif;font-weight:400;font-size:26px;color:var(--linen)}
+.facts span{color:var(--brass)}
+.hero-photo{position:relative;overflow:hidden}
+.hero-photo img{width:100%;height:100%;object-fit:cover;filter:saturate(.9) contrast(1.05)}
+.hero-photo::before{content:"";position:absolute;inset:0;box-shadow:inset 0 0 0 12px var(--bottle),inset 0 0 0 13px rgba(201,162,74,.6);z-index:1}
+/* services */
+section{padding:var(--s5) 0}
+.svc-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:var(--s5);align-items:start}
+h2{font-size:clamp(44px,5.6vw,76px);line-height:.95;letter-spacing:-.02em}
+h2 i{color:var(--ox)}
+.svc-intro p{margin-top:var(--s3);max-width:36ch;color:#3d3d3a}
+.svc-intro figure{margin-top:var(--s4)}
+.svc-intro figure img{aspect-ratio:4/3;object-fit:cover;width:100%}
+.svc{list-style:none;padding:0;border-top:2px solid var(--ink)}
+.svc li{display:grid;grid-template-columns:56px 1fr auto;gap:var(--s3);align-items:baseline;padding:28px 0;border-bottom:1px solid rgba(14,14,14,.15)}
+.svc li .n{color:var(--ox)}
+.svc li h3{font-family:"Bodoni Moda",serif;font-weight:400;font-size:30px;line-height:1.1}
+.svc li p{color:#55554f;font-size:15px;margin-top:4px}
+.svc li .tag{color:var(--ox);white-space:nowrap}
+.svc-note{margin-top:var(--s3);color:var(--ox)}
+/* quote band */
+.band{background:var(--ink);color:var(--linen);padding:var(--s5) 0;text-align:center}
+.band p{font-family:"Bodoni Moda",serif;font-style:italic;font-size:clamp(34px,5vw,68px);line-height:1.1;max-width:20ch;margin:0 auto}
+.band p span{color:var(--brass)}
+/* gallery */
+.gal{display:grid;grid-template-columns:repeat(12,1fr);gap:var(--s2)}
+.gal figure{overflow:hidden;background:#111}
+.gal img{width:100%;height:100%;object-fit:cover;transition:transform .7s ease}
+.gal figure:hover img{transform:scale(1.04)}
+.g1{grid-column:span 5;height:520px}.g2{grid-column:span 7;height:520px}.g3{grid-column:span 4;height:300px}.g4{grid-column:span 8;height:300px}
+.sample{font-size:13px;color:#77756d;margin-top:var(--s2)}
+/* find */
+.find{background:var(--bottle2);color:var(--linen)}
+.find-grid{display:grid;grid-template-columns:1fr 1.2fr;gap:var(--s4)}
+.find h2{color:var(--linen)}
+.rows{margin-top:var(--s4);border-top:1px solid rgba(238,233,222,.18)}
+.rows div{display:grid;grid-template-columns:110px 1fr;gap:var(--s3);padding:20px 0;border-bottom:1px solid rgba(238,233,222,.18)}
+.rows .mono{color:var(--brass);padding-top:6px}
+.rows p{font-family:"Bodoni Moda",serif;font-size:24px;line-height:1.3}
+.map{border:0;width:100%;height:100%;min-height:420px;filter:grayscale(.6) contrast(1.05)}
+footer{background:#000;color:#8b8b85;padding:var(--s4) 0 120px;font-size:13px}
+footer .wrap{display:grid;gap:12px}footer b{color:var(--linen)}footer a{color:#b5b5ad}
+.callbar{display:none}
+@media (max-width:900px){
+ .rail{width:6px}
+ .nav a:not(.book){display:none}
+ .hero{grid-template-columns:1fr;min-height:0}
+ .hero-photo{height:360px;order:-1}
+ .hero-copy{padding:var(--s4) var(--s3)}
+ .facts{grid-template-columns:1fr 1fr;gap:var(--s3)}
+ .svc-grid,.find-grid{grid-template-columns:1fr;gap:var(--s4)}
+ .svc li{grid-template-columns:40px 1fr}.svc li .tag{grid-column:2}
+ .g1,.g2,.g3,.g4{grid-column:span 12;height:260px}
+ section{padding:72px 0}
+ .callbar{display:flex;position:fixed;left:16px;right:12px;bottom:12px;z-index:35;gap:8px}
+ .callbar a{flex:1;text-align:center;padding:16px;font:500 13px "DM Mono",monospace;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;background:var(--brass);color:var(--ink);box-shadow:0 8px 24px rgba(0,0,0,.3)}
+ .callbar a+a{background:var(--bottle);color:var(--linen)}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<div class="rail" aria-hidden="true"></div>
+<div class="ribbon">Website preview made for The Dapper Shack · not the official site</div>
+<header class="top">
+ <div class="wrap">
+  <a class="logo serif" href="#">The <i>Dapper</i> Shack</a>
+  <nav class="nav mono" aria-label="Main"><a href="#services">Services</a><a href="#shop">The shop</a><a href="#find">Find us</a><a class="book" href="tel:+15014147628">Book · 501-414-7628</a></nav>
+ </div>
+</header>
+
+<main>
+<section class="hero" style="padding:0">
+ <div class="hero-copy">
+  <div>
+   <p class="mono">Barbershop · West Little Rock</p>
+   <h1 class="serif">The <i>Dapper</i><br>Shack</h1>
+   <p class="lede">Clean lines, sharp fades and a chair you'll want to come back to.</p>
+   <div class="cta">
+    <a class="btn" href="tel:+15014147628">Call to book</a>
+    <a class="plain" href="sms:+15014147628">or text the shop →</a>
+   </div>
+  </div>
+  <div class="facts mono">
+   <div><span>Where</span><b>Shackleford Rd</b></div>
+   <div><span>Suite</span><b>109</b></div>
+   <div><span>Book</span><b>Call or text</b></div>
+  </div>
+ </div>
+ <div class="hero-photo"><img src="img/hero.jpg" alt="Classic red leather barber chair at a station" width="731" height="1024" fetchpriority="high"></div>
+</section>
+
+<section id="services">
+ <div class="wrap svc-grid">
+  <div class="svc-intro">
+   <p class="mono" style="color:var(--ox)">01 — In the chair</p>
+   <h2 class="serif" style="margin-top:16px">Every cut,<br><i>done right.</i></h2>
+   <p>Whether it's a full makeover or a Friday line-up before the weekend, every client gets the same care and the same sharp finish.</p>
+   <figure><img src="img/razor.jpg" alt="Straight razor and shaving brush" loading="lazy"></figure>
+  </div>
+  <div>
+   <ul class="svc">
+    <li><span class="mono n">01</span><div><h3>Haircuts</h3><p>Classic and modern cuts for all ages.</p></div><span class="mono tag">All ages</span></li>
+    <li><span class="mono n">02</span><div><h3>Fades &amp; tapers</h3><p>Skin, low, mid or high, blended clean.</p></div><span class="mono tag">Most booked</span></li>
+    <li><span class="mono n">03</span><div><h3>Line-ups</h3><p>Sharp edges between full cuts.</p></div><span class="mono tag">Quick visit</span></li>
+    <li><span class="mono n">04</span><div><h3>Beard work</h3><p>Shape, trim and line the beard.</p></div><span class="mono tag">Shape &amp; trim</span></li>
+    <li><span class="mono n">05</span><div><h3>Kids' cuts</h3><p>Patient barbers, fresh cuts for school.</p></div><span class="mono tag">Ask the shop</span></li>
+   </ul>
+   <p class="mono svc-note">Call or text for prices and open chairs</p>
+  </div>
+ </div>
+</section>
+
+<div class="band"><p>Walk in looking regular.<br>Walk out looking <span>dapper.</span></p></div>
+
+<section id="shop">
+ <div class="wrap">
+  <p class="mono" style="color:var(--ox)">02 — The shop</p>
+  <h2 class="serif" style="margin:16px 0 48px">Pull up a chair.</h2>
+  <div class="gal">
+   <figure class="g1"><img src="img/chair.jpg" alt="Vintage chrome barber chair" loading="lazy"></figure>
+   <figure class="g2"><img src="img/shop.jpg" alt="Barbershop interior with chairs and mirrors" loading="lazy"></figure>
+   <figure class="g3"><img src="img/tools.jpg" alt="Barber scissors, comb and brush on a towel" loading="lazy"></figure>
+   <figure class="g4"><img src="img/hero.jpg" alt="Barber station with red leather chair" loading="lazy" style="object-position:center 70%"></figure>
+  </div>
+  <p class="sample">Sample photos for this preview. The Dapper Shack's own shop and haircut photos go here.</p>
+ </div>
+</section>
+
+<section class="find" id="find">
+ <div class="wrap find-grid">
+  <div>
+   <p class="mono" style="color:var(--brass)">03 — Find us</p>
+   <h2 class="serif" style="margin-top:16px">Find the shop</h2>
+   <div class="rows">
+    <div><span class="mono">Address</span><p>301 N Shackleford Rd<br>Suite 109, Little Rock</p></div>
+    <div><span class="mono">Phone</span><p><a href="tel:+15014147628">501-414-7628</a></p></div>
+    <div><span class="mono">Hours</span><p>Call or text for today's hours</p></div>
+   </div>
+   <p style="margin-top:24px"><a class="plain" href="https://maps.google.com/?q=301+N+Shackleford+Rd+Suite+109+Little+Rock+AR">Directions in Google Maps →</a></p>
+  </div>
+  <iframe class="map" title="Map to The Dapper Shack" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://maps.google.com/maps?q=301%20N%20Shackleford%20Rd%2C%20Little%20Rock%2C%20AR&z=15&output=embed"></iframe>
+ </div>
+</section>
+</main>
+
+<footer>
+ <div class="wrap">
+  <p><b>The Dapper Shack Barbershop, LLC</b> · 301 N Shackleford Rd, Suite 109, Little Rock, AR · 501-414-7628</p>
+  <p>Sample photos: Sam Howzit (CC BY), Dharion (CC BY), comedy_nose (public domain), Phillip Pessar (CC BY), TimothyJ (CC BY), via <a href="https://openverse.org">Openverse</a>/Flickr. License: <a href="https://creativecommons.org/licenses/by/2.0/">CC BY 2.0</a>.</p>
+ </div>
+</footer>
+<div class="callbar"><a href="tel:+15014147628">Call to book</a><a href="sms:+15014147628">Text</a></div>
+</body>
+</html>
