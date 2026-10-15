@@ -43,6 +43,8 @@ h2{font:600 13px/1 var(--body);text-transform:uppercase;letter-spacing:.08em;col
 .chk input{width:20px;height:20px;accent-color:var(--go)}
 .btns{display:grid;grid-template-columns:2fr 1fr 1fr;gap:8px}
 .btn{display:flex;align-items:center;justify-content:center;min-height:46px;border-radius:10px;font:600 15px var(--body);text-decoration:none;border:1px solid var(--line);color:var(--ink);background:transparent;cursor:pointer;padding:0 8px}
+.btn.done{background:transparent;color:var(--go);border-color:var(--go)}
+.btn.redo{font-size:13px;color:var(--mute)}
 .btn.text{background:var(--go);color:var(--go-ink);border-color:var(--go);font-size:16px}
 .btn:focus-visible,.chk input:focus-visible{outline:3px solid var(--go);outline-offset:2px}
 details{font-size:14px}
@@ -57,7 +59,7 @@ summary{cursor:pointer;color:var(--mute)}
 <div class="wrap">
   <header>
     <h1>Pitch texts</h1>
-    <div class="sub">Tap <b>Instagram DM</b> or <b>Facebook DM</b>: your message is copied, then their chat opens. Paste and send.</div>
+    <div class="sub">Tap the green button, paste, send, come back. Repeat.</div>
     <div class="bar"><i id="fill"></i></div>
     <div class="count" id="count"></div>
   </header>
@@ -71,7 +73,7 @@ summary{cursor:pointer;color:var(--mute)}
 <script>
 const BASE = "https://ridda0527.github.io/lr-previews/";
 const GROUPS = [
-  {title:"DM these (texts didn't go through)", why:"These numbers are landlines, so texts bounced. Tap a button: it copies your message and opens their page. Paste it into the chat and send."},
+  {title:"DM these (texts didn't go through)", why:"These numbers are landlines, so texts bounced. Tap the green button: it copies your message and opens Instagram. Paste and send, come back, tap again for Facebook. Then it takes you to the next one."},
   {title:"Texted", why:"These went through. Wait for replies."},
   {title:"Call first", why:"Couldn't confirm these are still open."}
 ];
@@ -116,6 +118,15 @@ function fmt(p){return "("+p.slice(0,3)+") "+p.slice(3,6)+"-"+p.slice(6)}
 
 let sent = {};
 try{ sent = JSON.parse(localStorage.getItem("sentPitches")||"{}") }catch(e){}
+let step = {};
+try{ step = JSON.parse(localStorage.getItem("dmStep")||"{}") }catch(e){}
+function saveStep(){ try{ localStorage.setItem("dmStep", JSON.stringify(step)) }catch(e){} }
+function goNext(id){
+  const order = BIZ.filter(b=>b.ig||b.fb);
+  const i = order.findIndex(b=>b.id===id);
+  const next = order.slice(i+1).concat(order.slice(0,i)).find(b=>!sent[b.id]);
+  if(next) document.getElementById("dm-"+next.id).closest(".biz").scrollIntoView({behavior:"smooth",block:"center"});
+}
 function save(){ try{ localStorage.setItem("sentPitches", JSON.stringify(sent)) }catch(e){} }
 
 function render(){
@@ -140,7 +151,7 @@ function render(){
           <label class="chk"><input type="checkbox" id="sent-${b.id}" ${sent[b.id]?"checked":""}> Sent</label>
         </div>
         <div class="btns">
-          ${(b.ig||b.fb) ? (b.ig ? `<a class="btn text dm" href="https://ig.me/m/${b.ig}" target="_blank" rel="noopener">Instagram DM</a>` : "") + (b.fb ? `<a class="btn ${b.ig?"":"text "}dm" href="https://m.me/${b.fb}" target="_blank" rel="noopener">${b.ig?"Facebook":"Facebook DM"}</a>` : "") + (b.ig&&b.fb ? "" : "") : (b.phone ? `<a class="btn text" href="${smsHref}">Text</a><a class="btn" href="tel:+1${b.phone}">Call</a>` : `<span class="btn" style="grid-column:span 2;opacity:.6">No phone listed</span>`)}
+          ${(b.ig||b.fb) ? `<a class="btn text dm" id="dm-${b.id}" target="_blank" rel="noopener"></a><button class="btn redo" type="button">Start over</button>` : (b.phone ? `<a class="btn text" href="${smsHref}">Text</a><a class="btn" href="tel:+1${b.phone}">Call</a>` : `<span class="btn" style="grid-column:span 2;opacity:.6">No phone listed</span>`)}
           <a class="btn" href="${b.url || BASE + b.id + "/"}" target="_blank" rel="noopener">Site</a>
         </div>
         <details><summary>See message</summary><div class="msg"></div><button class="copy" type="button">Copy message</button></details>`;
@@ -150,7 +161,27 @@ function render(){
       el.querySelector(".msg").textContent = msg;
       const box = el.querySelector("input");
       box.addEventListener("change",()=>{ sent[b.id]=box.checked; if(!box.checked) delete sent[b.id]; save(); el.classList.toggle("sent",box.checked); progress(); });
-      el.querySelectorAll(".dm").forEach(a=>a.addEventListener("click",()=>{ try{ navigator.clipboard.writeText(msg).catch(()=>{}) }catch(e){} sent[b.id]=true; box.checked=true; el.classList.add("sent"); save(); progress(); }));
+      const dm = el.querySelector(".dm");
+      if(dm){
+        const steps = [];
+        if(b.ig) steps.push({label:"1. Open Instagram", href:"https://ig.me/m/"+b.ig});
+        if(b.fb) steps.push({label:(b.ig?"2. ":"")+"Open Facebook", href:"https://m.me/"+b.fb});
+        const paint = ()=>{
+          const n = step[b.id]||0;
+          if(n < steps.length){ dm.textContent = steps[n].label; dm.href = steps[n].href; dm.classList.remove("done"); }
+          else { dm.textContent = "Done, next one"; dm.removeAttribute("href"); dm.classList.add("done"); }
+        };
+        paint();
+        dm.addEventListener("click",(e)=>{
+          const n = step[b.id]||0;
+          if(n >= steps.length){ e.preventDefault(); goNext(b.id); return; }
+          try{ navigator.clipboard.writeText(msg).catch(()=>{}) }catch(err){}
+          step[b.id] = n+1; saveStep();
+          if(n+1 >= steps.length){ sent[b.id]=true; box.checked=true; el.classList.add("sent"); save(); progress(); }
+          setTimeout(paint, 300);
+        });
+        el.querySelector(".redo").addEventListener("click",()=>{ delete step[b.id]; saveStep(); paint(); });
+      }
       const t = el.querySelector(".btn.text:not(.dm)");
       if(t) t.addEventListener("click",()=>{ sent[b.id]=true; box.checked=true; el.classList.add("sent"); save(); progress(); });
       const c = el.querySelector(".copy");
