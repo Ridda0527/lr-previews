@@ -57,7 +57,7 @@ summary{cursor:pointer;color:var(--mute)}
 <div class="wrap">
   <header>
     <h1>Pitch texts</h1>
-    <div class="sub">Tap <b>Text</b> and the message opens in your Messages app, ready to send.</div>
+    <div class="sub">Tap <b>Instagram DM</b> or <b>Facebook DM</b>: your message is copied, then their chat opens. Paste and send.</div>
     <div class="bar"><i id="fill"></i></div>
     <div class="count" id="count"></div>
   </header>
@@ -71,33 +71,33 @@ summary{cursor:pointer;color:var(--mute)}
 <script>
 const BASE = "https://ridda0527.github.io/lr-previews/";
 const GROUPS = [
-  {title:"Start here", why:"Their website link is broken or wrong. That's an easy problem to point out."},
-  {title:"No website", why:"Nothing comes up when customers search for a website."},
-  {title:"Only Facebook or a booking page", why:"They have a page, but no real website of their own."},
-  {title:"Call first", why:"Couldn't confirm these are still open. Call before texting."}
+  {title:"DM these (texts didn't go through)", why:"These numbers are landlines, so texts bounced. Tap a button: it copies your message and opens their page. Paste it into the chat and send."},
+  {title:"Texted", why:"These went through. Wait for replies."},
+  {title:"Call first", why:"Couldn't confirm these are still open."}
 ];
 // g = group index, kind: food or barber (changes the wording), open = custom opening line
+// ig = Instagram username, fb = Facebook page path (after facebook.com/)
 const BIZ = [
-  {g:0,id:"bobbie-ds",name:"Bobbie D's Southern Cuisine",area:"W 65th St",rating:"4.6★ (669)",phone:"5015651699",open:"The Website button on your Google listing sends customers to a spam site"},
-  {g:0,id:"brewsters2",name:"Brewsters 2 Café",area:"S Arch St",rating:"4.5★ (503)",phone:"5013017728",open:"The website on your Facebook page (brewsters2cafe.com) doesn't load anymore"},
-  {g:0,id:"outdoor-soul-food-cafe",name:"Outdoor Soul Food Cafe",area:"Colonel Glenn Rd",rating:"4.6★ (52)",phone:"5015177313",open:"outdoorsoulfood.com shows an error page right now"},
-  {g:1,id:"taqueria-el-palenque",name:"Taquería El Palenque",area:"N Rodney Parham",rating:"4.5★ (1,153)",phone:"5013120045"},
-  {g:1,id:"kitchen-express",name:"Kitchen Express",area:"Asher Ave",rating:"3.9★ (995)",phone:"5016663500"},
+  {g:0,id:"bobbie-ds",name:"Bobbie D's Southern Cuisine",area:"W 65th St",rating:"4.6★ (669)",phone:"5015651699",open:"The Website button on your Google listing sends customers to a spam site",fb:"BobbieDCatering"},
+  {g:0,id:"brewsters2",name:"Brewsters 2 Café",area:"S Arch St",rating:"4.5★ (503)",phone:"5013017728",open:"The website on your Facebook page (brewsters2cafe.com) doesn't load anymore",fb:"brewsters2"},
+  {g:0,id:"three-sams-bbq",name:"Three Sam's BBQ Joint",area:"Mann Rd, Mabelvale",rating:"4.6★ (416)",phone:"5014070345",ig:"threesamsbbq",fb:"61588184463368"},
+  {g:0,id:"wing-shack",name:"The Wing Shack",area:"John Barrow Rd",rating:"4.3★ (814)",phone:"5012197189",ig:"thewingshackbarandgrill",fb:"thewingshackbarandgrill"},
+  {g:0,id:"taqueria-el-palenque",name:"Taquería El Palenque",area:"N Rodney Parham",rating:"4.5★ (1,153)",phone:"5013120045",fb:"100068202289685"},
+  {g:0,id:"kitchen-express",name:"Kitchen Express",area:"Asher Ave",rating:"3.9★ (995)",phone:"5016663500",ig:"kitchenexpress_lr",fb:"100063532060253"},
+  {g:0,id:"5-star-cutz",name:"5 Star Cutz",area:"S University Ave",rating:"4.9★ (103)",phone:"5013531326",kind:"barber",ig:"5starcutzlr",fb:"61573129354978"},
+  {g:0,id:"jacksons-soul-food",name:"Jackson's Soul Food",area:"McCain Mall, NLR",rating:"",phone:"5019046987",ig:"jacksonsoulfoodllc",fb:"61570127124582"},
+  {g:0,id:"el-alamo-mexican-grill",name:"El Alamo Mexican Grill",area:"Geyer Springs Rd",rating:"4.8★ (205)",phone:"5015651120",ig:"elalamomexicangrill",fb:"100063694473176"},
+  {g:0,id:"el-agave-taqueria-y-birria",name:"El Agave Taquería y Birría",area:"Atwood Rd",rating:"4.8★ (167)",phone:"5012615008",ig:"elagavetyb",fb:"el.agave.114306"},
+  {g:1,id:"outdoor-soul-food-cafe",name:"Outdoor Soul Food Cafe",area:"Colonel Glenn Rd",rating:"4.6★ (52)",phone:"5015177313",open:"outdoorsoulfood.com shows an error page right now"},
   {g:1,id:"world-champion-cutts",name:"World Champion Cutts",area:"W Daisy Bates Dr",rating:"4.9★ (189)",phone:"5013242888",kind:"barber"},
-  {g:1,id:"5-star-cutz",name:"5 Star Cutz",area:"S University Ave",rating:"4.9★ (103)",phone:"5013531326",kind:"barber"},
   {g:1,id:"tacos-rizo",name:"Tacos Rizo",area:"AR-5",rating:"4.8★ (61)",phone:"5017074212"},
   {g:1,id:"blue-pumpkin",name:"Blue Pumpkin",area:"Food truck, NLR",rating:"4.6★ (31)",phone:"5018381033"},
-  {g:1,id:"jacksons-soul-food",name:"Jackson's Soul Food",area:"McCain Blvd, NLR",rating:"",phone:"5019046987"},
   {g:1,id:"hotlanta-wings",name:"Hotlanta Wings",area:"Mabelvale Cut Off Rd",rating:"4.6★ (29)",phone:"5014868648"},
-  {g:2,id:"vip-barber",name:"VIP Barber",area:"S University Ave",rating:"5.0★ (305)",phone:"5014065264",kind:"barber"},
-  {g:2,id:"three-sams-bbq",name:"Three Sam's BBQ Joint",area:"Mann Rd, Mabelvale",rating:"4.6★ (416)",phone:"5014070345"},
-  {g:2,id:"wing-shack",name:"The Wing Shack",area:"John Barrow Rd",rating:"4.3★ (814)",phone:"5012197189"},
-  {g:2,id:"el-alamo-mexican-grill",name:"El Alamo Mexican Grill",area:"Geyer Springs Rd",rating:"4.8★ (205)",phone:"5015651120"},
-  {g:2,id:"el-agave-taqueria-y-birria",name:"El Agave Taquería y Birría",area:"Atwood Rd",rating:"4.8★ (167)",phone:"5012615008"},
-  {g:2,id:"dapper-shack",name:"The Dapper Shack",area:"N Shackleford Rd",rating:"4.9★ (73)",phone:"5014147628",kind:"barber"},
-  {g:2,id:"10kkuttz-barbershop",name:"10kkuttz Barbershop",area:"W Daisy Bates Dr",rating:"4.9★ (35)",phone:"5013131455",kind:"barber"},
-  {g:3,id:"taqueria-jalisco",name:"Taqueria Jalisco",area:"Taco truck, Markham",rating:"",phone:"5015415533",url:"https://taqueria-jalisco-preview.vercel.app",note:"Not on Google Maps anymore. Call to check it's still open."},
-  {g:3,id:"new-image-detail",name:"New Image Mobile Detail",area:"Mobile detailing",rating:"",phone:"",url:"https://new-image-detail-preview.vercel.app",note:"Facebook only, no phone found. Message them on Facebook. Site uses stock photos."}
+  {g:1,id:"vip-barber",name:"VIP Barber",area:"S University Ave",rating:"5.0★ (305)",phone:"5014065264",kind:"barber"},
+  {g:1,id:"dapper-shack",name:"The Dapper Shack",area:"N Shackleford Rd",rating:"4.9★ (73)",phone:"5014147628",kind:"barber"},
+  {g:1,id:"10kkuttz-barbershop",name:"10kkuttz Barbershop",area:"W Daisy Bates Dr",rating:"4.9★ (35)",phone:"5013131455",kind:"barber"},
+  {g:2,id:"taqueria-jalisco",name:"Taqueria Jalisco",area:"Taco truck, Markham",rating:"",phone:"5015415533",url:"https://taqueria-jalisco-preview.vercel.app",note:"Not on Google Maps anymore. Call to check it's still open."},
+  {g:2,id:"new-image-detail",name:"New Image Mobile Detail",area:"Mobile detailing",rating:"",phone:"",url:"https://new-image-detail-preview.vercel.app",note:"Facebook only, no phone found. Search them on Facebook and DM. Site uses stock photos."}
 ];
 
 function opener(b){
@@ -134,13 +134,13 @@ function render(){
           <div>
             <h3 class="name"></h3>
             <div class="meta"></div>
-            ${b.phone ? `<div class="phone">${fmt(b.phone)}</div>` : ""}
+            ${(b.ig||b.fb) ? `<div class="phone">${[b.ig?"@"+b.ig:"", b.fb&&!/^[0-9]+$/.test(b.fb)?"fb: "+b.fb:(b.ig?"":"Facebook page")].filter(Boolean).join(" · ")}</div>` : (b.phone ? `<div class="phone">${fmt(b.phone)}</div>` : "")}
             ${b.note ? `<div class="note"></div>` : ""}
           </div>
           <label class="chk"><input type="checkbox" id="sent-${b.id}" ${sent[b.id]?"checked":""}> Sent</label>
         </div>
         <div class="btns">
-          ${b.phone ? `<a class="btn text" href="${smsHref}">Text</a><a class="btn" href="tel:+1${b.phone}">Call</a>` : `<span class="btn" style="grid-column:span 2;opacity:.6">No phone listed</span>`}
+          ${(b.ig||b.fb) ? (b.ig ? `<a class="btn text dm" href="https://ig.me/m/${b.ig}" target="_blank" rel="noopener">Instagram DM</a>` : "") + (b.fb ? `<a class="btn ${b.ig?"":"text "}dm" href="https://m.me/${b.fb}" target="_blank" rel="noopener">${b.ig?"Facebook":"Facebook DM"}</a>` : "") + (b.ig&&b.fb ? "" : "") : (b.phone ? `<a class="btn text" href="${smsHref}">Text</a><a class="btn" href="tel:+1${b.phone}">Call</a>` : `<span class="btn" style="grid-column:span 2;opacity:.6">No phone listed</span>`)}
           <a class="btn" href="${b.url || BASE + b.id + "/"}" target="_blank" rel="noopener">Site</a>
         </div>
         <details><summary>See message</summary><div class="msg"></div><button class="copy" type="button">Copy message</button></details>`;
@@ -150,7 +150,8 @@ function render(){
       el.querySelector(".msg").textContent = msg;
       const box = el.querySelector("input");
       box.addEventListener("change",()=>{ sent[b.id]=box.checked; if(!box.checked) delete sent[b.id]; save(); el.classList.toggle("sent",box.checked); progress(); });
-      const t = el.querySelector(".btn.text");
+      el.querySelectorAll(".dm").forEach(a=>a.addEventListener("click",()=>{ try{ navigator.clipboard.writeText(msg).catch(()=>{}) }catch(e){} sent[b.id]=true; box.checked=true; el.classList.add("sent"); save(); progress(); }));
+      const t = el.querySelector(".btn.text:not(.dm)");
       if(t) t.addEventListener("click",()=>{ sent[b.id]=true; box.checked=true; el.classList.add("sent"); save(); progress(); });
       const c = el.querySelector(".copy");
       c.addEventListener("click",async()=>{
