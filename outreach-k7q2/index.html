@@ -74,6 +74,7 @@ summary{cursor:pointer;color:var(--mute)}
 const BASE = "https://ridda0527.github.io/lr-previews/";
 const GROUPS = [
   {title:"DM these (texts didn't go through)", why:"These numbers are landlines, so texts bounced. Tap the green button: it copies your message and opens Instagram. Paste and send, come back, tap again for Facebook. Then it takes you to the next one."},
+  {title:"New batch", why:"Fresh businesses with no website. Same flow: tap, paste, send."},
   {title:"Texted", why:"These went through. Wait for replies."},
   {title:"Call first", why:"Couldn't confirm these are still open."}
 ];
@@ -90,29 +91,29 @@ const BIZ = [
   {g:0,id:"jacksons-soul-food",name:"Jackson's Soul Food",area:"McCain Mall, NLR",rating:"",phone:"5019046987",ig:"jacksonsoulfoodllc",fb:"61570127124582"},
   {g:0,id:"el-alamo-mexican-grill",name:"El Alamo Mexican Grill",area:"Geyer Springs Rd",rating:"4.8★ (205)",phone:"5015651120",ig:"elalamomexicangrill",fb:"100063694473176"},
   {g:0,id:"el-agave-taqueria-y-birria",name:"El Agave Taquería y Birría",area:"Atwood Rd",rating:"4.8★ (167)",phone:"5012615008",ig:"elagavetyb",fb:"el.agave.114306"},
-  {g:1,id:"outdoor-soul-food-cafe",name:"Outdoor Soul Food Cafe",area:"Colonel Glenn Rd",rating:"4.6★ (52)",phone:"5015177313",open:"outdoorsoulfood.com shows an error page right now"},
-  {g:1,id:"world-champion-cutts",name:"World Champion Cutts",area:"W Daisy Bates Dr",rating:"4.9★ (189)",phone:"5013242888",kind:"barber"},
-  {g:1,id:"tacos-rizo",name:"Tacos Rizo",area:"AR-5",rating:"4.8★ (61)",phone:"5017074212"},
-  {g:1,id:"blue-pumpkin",name:"Blue Pumpkin",area:"Food truck, NLR",rating:"4.6★ (31)",phone:"5018381033"},
-  {g:1,id:"hotlanta-wings",name:"Hotlanta Wings",area:"Mabelvale Cut Off Rd",rating:"4.6★ (29)",phone:"5014868648"},
-  {g:1,id:"vip-barber",name:"VIP Barber",area:"S University Ave",rating:"5.0★ (305)",phone:"5014065264",kind:"barber"},
-  {g:1,id:"dapper-shack",name:"The Dapper Shack",area:"N Shackleford Rd",rating:"4.9★ (73)",phone:"5014147628",kind:"barber"},
-  {g:1,id:"10kkuttz-barbershop",name:"10kkuttz Barbershop",area:"W Daisy Bates Dr",rating:"4.9★ (35)",phone:"5013131455",kind:"barber"},
-  {g:2,id:"taqueria-jalisco",name:"Taqueria Jalisco",area:"Taco truck, Markham",rating:"",phone:"5015415533",url:"https://taqueria-jalisco-preview.vercel.app",note:"Not on Google Maps anymore. Call to check it's still open."},
-  {g:2,id:"new-image-detail",name:"New Image Mobile Detail",area:"Mobile detailing",rating:"",phone:"",url:"https://new-image-detail-preview.vercel.app",note:"Facebook only, no phone found. Search them on Facebook and DM. Site uses stock photos."}
+  {g:2,id:"outdoor-soul-food-cafe",name:"Outdoor Soul Food Cafe",area:"Colonel Glenn Rd",rating:"4.6★ (52)",phone:"5015177313",open:"outdoorsoulfood.com shows an error page right now"},
+  {g:2,id:"world-champion-cutts",name:"World Champion Cutts",area:"W Daisy Bates Dr",rating:"4.9★ (189)",phone:"5013242888",kind:"barber"},
+  {g:2,id:"tacos-rizo",name:"Tacos Rizo",area:"AR-5",rating:"4.8★ (61)",phone:"5017074212"},
+  {g:2,id:"blue-pumpkin",name:"Blue Pumpkin",area:"Food truck, NLR",rating:"4.6★ (31)",phone:"5018381033"},
+  {g:2,id:"hotlanta-wings",name:"Hotlanta Wings",area:"Mabelvale Cut Off Rd",rating:"4.6★ (29)",phone:"5014868648"},
+  {g:2,id:"vip-barber",name:"VIP Barber",area:"S University Ave",rating:"5.0★ (305)",phone:"5014065264",kind:"barber"},
+  {g:2,id:"dapper-shack",name:"The Dapper Shack",area:"N Shackleford Rd",rating:"4.9★ (73)",phone:"5014147628",kind:"barber"},
+  {g:2,id:"10kkuttz-barbershop",name:"10kkuttz Barbershop",area:"W Daisy Bates Dr",rating:"4.9★ (35)",phone:"5013131455",kind:"barber"},
+  {g:3,id:"taqueria-jalisco",name:"Taqueria Jalisco",area:"Taco truck, Markham",rating:"",phone:"5015415533",url:"https://taqueria-jalisco-preview.vercel.app",note:"Not on Google Maps anymore. Call to check it's still open."},
+  {g:3,id:"new-image-detail",name:"New Image Mobile Detail",area:"Mobile detailing",rating:"",phone:"",url:"https://new-image-detail-preview.vercel.app",note:"Facebook only, no phone found. Search them on Facebook and DM. Site uses stock photos."}
 ];
 
 function opener(b){
   if(b.open) return b.open;
-  if(b.g===1) return "I noticed " + b.name + " doesn't have a website yet";
+  if(b.angle==="no website") return "I noticed " + b.name + " doesn't have a website yet";
   return "I noticed " + b.name + " doesn't have its own website yet";
 }
 function message(b){
   const link = b.url || (BASE + b.id + "/");
-  const what = b.kind==="barber" ? "your real photos" : (b.id==="new-image-detail" ? "a sample design" : "your real photos and menu");
+  const what = (b.kind==="barber"||b.kind==="service") ? "your real photos" : (b.id==="new-image-detail" ? "a sample design" : "your real photos and menu");
   return "Hi! I'm Ridda, a web designer here in Little Rock. " + opener(b) +
     ", so I built you a free preview of a new site using " + what + ":\n" + link +
-    "\nIf you like it, it's yours for $100. I'll make it live this week and change anything you want. No monthly fee from me.";
+    "\nMore of my work: https://ridda0527.github.io/lr-previews/\nIf you like it, it's yours for $100. I'll make it live this week and change anything you want. No monthly fee from me.";
 }
 function fmt(p){return "("+p.slice(0,3)+") "+p.slice(3,6)+"-"+p.slice(6)}
 
@@ -200,7 +201,11 @@ function progress(){
   document.getElementById("count").textContent = n + " of " + BIZ.length + " sent";
   document.getElementById("fill").style.width = (n/BIZ.length*100) + "%";
 }
-render();
+fetch("leads.json?v=" + Date.now()).then(r=>r.ok?r.json():[]).catch(()=>[]).then(extra=>{
+  const have = new Set(BIZ.map(b=>b.id));
+  extra.forEach(l=>{ if(!have.has(l.id)) BIZ.push(Object.assign({g:1}, l, {kind: l.kind==="food" ? undefined : (l.kind==="barber" ? "barber" : "service")})); });
+  render();
+});
 </script>
 </body>
 </html>
