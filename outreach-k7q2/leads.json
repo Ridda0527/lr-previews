@@ -1,1 +1,34 @@
-[]
+[
+ {
+  "id": "jerrys-barber-shop",
+  "name": "Jerry's Barber Shop",
+  "area": "Kavanaugh Blvd, The Heights",
+  "rating": "4.7★ (161)",
+  "phone": "5016639875",
+  "fb": "Jerrysbarbershopintheheights",
+  "kind": "barber",
+  "angle": "facebook only"
+ },
+ {
+  "id": "as-barbershop",
+  "name": "A's Barbershop",
+  "area": "Stagecoach Rd",
+  "rating": "4.9★ (130)",
+  "phone": "5013799524",
+  "ig": "a__barbershop",
+  "fb": "100077584904662",
+  "kind": "barber",
+  "angle": "no website"
+ },
+ {
+  "id": "wings-take-out",
+  "name": "Wings Take Out",
+  "area": "W Roosevelt Rd",
+  "rating": "3.9★ (349)",
+  "phone": "5017472121",
+  "ig": "wingtakeout_1",
+  "fb": "100049450518727",
+  "kind": "food",
+  "angle": "facebook only"
+ }
+]
