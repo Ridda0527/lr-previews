@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>Pitch Texts</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Figtree:wght@400;500;600&display=swap">
+<style>
+/* Layout: one phone-width column of business rows, a sticky progress bar on top */
+:root{
+  --paper:#F5F4EF; --card:#FFFFFF; --ink:#16201C; --mute:#5D6862; --line:#DEDDD5;
+  --go:#0E6B4E; --go-ink:#FFFFFF; --warn:#9A5B00; --done:#E4EFE9;
+  --display:"Bricolage Grotesque", "Avenir Next", system-ui, sans-serif;
+  --body:"Figtree", -apple-system, system-ui, sans-serif;
+  color-scheme:light;
+}
+@media (prefers-color-scheme: dark){:root{
+  --paper:#101513; --card:#18201D; --ink:#EEF2EF; --mute:#9AA6A0; --line:#2A3430;
+  --go:#3FB68B; --go-ink:#06120D; --warn:#E5A84B; --done:#1C2C25; color-scheme:dark}}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.45 var(--body)}
+.wrap{max-width:560px;margin:0 auto;padding:0 16px 64px}
+header{position:sticky;top:0;z-index:5;background:var(--paper);padding:calc(14px + env(safe-area-inset-top,0px)) 0 12px;border-bottom:1px solid var(--line)}
+h1{font:800 26px/1.1 var(--display);margin:0;letter-spacing:-.01em}
+.sub{color:var(--mute);font-size:14px;margin:4px 0 10px}
+.bar{height:8px;border-radius:99px;background:var(--line);overflow:hidden}
+.bar i{display:block;height:100%;width:0;background:var(--go);transition:width .3s}
+.count{font-size:13px;color:var(--mute);margin-top:6px;font-variant-numeric:tabular-nums}
+h2{font:600 13px/1 var(--body);text-transform:uppercase;letter-spacing:.08em;color:var(--mute);margin:28px 0 4px}
+.why{font-size:14px;color:var(--mute);margin:0 0 10px}
+.biz{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px;margin-top:10px;display:grid;gap:10px}
+.biz.sent{background:var(--done)}
+.top{display:flex;justify-content:space-between;gap:10px;align-items:flex-start}
+.name{font:600 18px/1.2 var(--display);margin:0}
+.meta{font-size:13px;color:var(--mute);margin-top:2px}
+.phone{font-size:14px;font-variant-numeric:tabular-nums;user-select:all}
+.note{font-size:13px;color:var(--warn);font-weight:600}
+.chk{display:flex;align-items:center;gap:6px;font-size:13px;color:var(--mute);white-space:nowrap;cursor:pointer}
+.chk input{width:20px;height:20px;accent-color:var(--go)}
+.btns{display:grid;grid-template-columns:2fr 1fr 1fr;gap:8px}
+.btn{display:flex;align-items:center;justify-content:center;min-height:46px;border-radius:10px;font:600 15px var(--body);text-decoration:none;border:1px solid var(--line);color:var(--ink);background:transparent;cursor:pointer;padding:0 8px}
+.btn.text{background:var(--go);color:var(--go-ink);border-color:var(--go);font-size:16px}
+.btn:focus-visible,.chk input:focus-visible{outline:3px solid var(--go);outline-offset:2px}
+details{font-size:14px}
+summary{cursor:pointer;color:var(--mute)}
+.msg{white-space:pre-wrap;background:var(--paper);border-radius:8px;padding:10px;margin:8px 0;font-size:14px}
+.copy{font:600 14px var(--body);background:none;border:1px solid var(--line);color:var(--ink);border-radius:8px;padding:8px 12px;cursor:pointer}
+.tips{margin-top:32px;font-size:14px;color:var(--mute)}
+.tips b{color:var(--ink)}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1>Pitch texts</h1>
+    <div class="sub">Tap <b>Text</b> and the message opens in your Messages app, ready to send.</div>
+    <div class="bar"><i id="fill"></i></div>
+    <div class="count" id="count"></div>
+  </header>
+  <main id="list"></main>
+  <div class="tips">
+    <p><b>If someone says yes:</b> ask for their logo and any photos they like, confirm prices and hours, and take payment by Cash App, Venmo or Zelle (half up front is fine).</p>
+    <p><b>Best time to text:</b> mid-afternoon, between the lunch and dinner rush. Barbers: weekday mornings.</p>
+    <p>"Sent" checkmarks are saved on this phone only.</p>
+  </div>
+</div>
+<script>
+const BASE = "https://ridda0527.github.io/lr-previews/";
+const GROUPS = [
+  {title:"Start here", why:"Their website link is broken or wrong. That's an easy problem to point out."},
+  {title:"No website", why:"Nothing comes up when customers search for a website."},
+  {title:"Only Facebook or a booking page", why:"They have a page, but no real website of their own."},
+  {title:"Call first", why:"Couldn't confirm these are still open. Call before texting."}
+];
+// g = group index, kind: food or barber (changes the wording), open = custom opening line
+const BIZ = [
+  {g:0,id:"bobbie-ds",name:"Bobbie D's Southern Cuisine",area:"W 65th St",rating:"4.6★ (669)",phone:"5015651699",open:"The Website button on your Google listing sends customers to a spam site"},
+  {g:0,id:"brewsters2",name:"Brewsters 2 Café",area:"S Arch St",rating:"4.5★ (503)",phone:"5013017728",open:"The website on your Facebook page (brewsters2cafe.com) doesn't load anymore"},
+  {g:0,id:"outdoor-soul-food-cafe",name:"Outdoor Soul Food Cafe",area:"Colonel Glenn Rd",rating:"4.6★ (52)",phone:"5015177313",open:"outdoorsoulfood.com shows an error page right now"},
+  {g:1,id:"taqueria-el-palenque",name:"Taquería El Palenque",area:"N Rodney Parham",rating:"4.5★ (1,153)",phone:"5013120045"},
+  {g:1,id:"kitchen-express",name:"Kitchen Express",area:"Asher Ave",rating:"3.9★ (995)",phone:"5016663500"},
+  {g:1,id:"world-champion-cutts",name:"World Champion Cutts",area:"W Daisy Bates Dr",rating:"4.9★ (189)",phone:"5013242888",kind:"barber"},
+  {g:1,id:"5-star-cutz",name:"5 Star Cutz",area:"S University Ave",rating:"4.9★ (103)",phone:"5013531326",kind:"barber"},
+  {g:1,id:"tacos-rizo",name:"Tacos Rizo",area:"AR-5",rating:"4.8★ (61)",phone:"5017074212"},
+  {g:1,id:"blue-pumpkin",name:"Blue Pumpkin",area:"Food truck, NLR",rating:"4.6★ (31)",phone:"5018381033"},
+  {g:1,id:"jacksons-soul-food",name:"Jackson's Soul Food",area:"McCain Blvd, NLR",rating:"",phone:"5019046987"},
+  {g:1,id:"hotlanta-wings",name:"Hotlanta Wings",area:"Mabelvale Cut Off Rd",rating:"4.6★ (29)",phone:"5014868648"},
+  {g:2,id:"vip-barber",name:"VIP Barber",area:"S University Ave",rating:"5.0★ (305)",phone:"5014065264",kind:"barber"},
+  {g:2,id:"three-sams-bbq",name:"Three Sam's BBQ Joint",area:"Mann Rd, Mabelvale",rating:"4.6★ (416)",phone:"5014070345"},
+  {g:2,id:"wing-shack",name:"The Wing Shack",area:"John Barrow Rd",rating:"4.3★ (814)",phone:"5012197189"},
+  {g:2,id:"el-alamo-mexican-grill",name:"El Alamo Mexican Grill",area:"Geyer Springs Rd",rating:"4.8★ (205)",phone:"5015651120"},
+  {g:2,id:"el-agave-taqueria-y-birria",name:"El Agave Taquería y Birría",area:"Atwood Rd",rating:"4.8★ (167)",phone:"5012615008"},
+  {g:2,id:"dapper-shack",name:"The Dapper Shack",area:"N Shackleford Rd",rating:"4.9★ (73)",phone:"5014147628",kind:"barber"},
+  {g:2,id:"10kkuttz-barbershop",name:"10kkuttz Barbershop",area:"W Daisy Bates Dr",rating:"4.9★ (35)",phone:"5013131455",kind:"barber"},
+  {g:3,id:"taqueria-jalisco",name:"Taqueria Jalisco",area:"Taco truck, Markham",rating:"",phone:"5015415533",url:"https://taqueria-jalisco-preview.vercel.app",note:"Not on Google Maps anymore. Call to check it's still open."},
+  {g:3,id:"new-image-detail",name:"New Image Mobile Detail",area:"Mobile detailing",rating:"",phone:"",url:"https://new-image-detail-preview.vercel.app",note:"Facebook only, no phone found. Message them on Facebook. Site uses stock photos."}
+];
+
+function opener(b){
+  if(b.open) return b.open;
+  if(b.g===1) return "I noticed " + b.name + " doesn't have a website yet";
+  return "I noticed " + b.name + " doesn't have its own website yet";
+}
+function message(b){
+  const link = b.url || (BASE + b.id + "/");
+  const what = b.kind==="barber" ? "your real photos" : (b.id==="new-image-detail" ? "a sample design" : "your real photos and menu");
+  return "Hi! I'm Ridda, a web designer here in Little Rock. " + opener(b) +
+    ", so I built you a free preview of a new site using " + what + ":\n" + link +
+    "\nIf you like it, it's yours for $100. I'll make it live this week and change anything you want. No monthly fee from me.";
+}
+function fmt(p){return "("+p.slice(0,3)+") "+p.slice(3,6)+"-"+p.slice(6)}
+
+let sent = {};
+try{ sent = JSON.parse(localStorage.getItem("sentPitches")||"{}") }catch(e){}
+function save(){ try{ localStorage.setItem("sentPitches", JSON.stringify(sent)) }catch(e){} }
+
+function render(){
+  const list = document.getElementById("list");
+  list.innerHTML = "";
+  GROUPS.forEach((grp,gi)=>{
+    const h = document.createElement("h2"); h.textContent = grp.title; list.append(h);
+    const p = document.createElement("p"); p.className="why"; p.textContent = grp.why; list.append(p);
+    BIZ.filter(b=>b.g===gi).forEach(b=>{
+      const msg = message(b);
+      const el = document.createElement("section");
+      el.className = "biz" + (sent[b.id] ? " sent" : "");
+      const smsHref = "sms:+1" + b.phone + "?&body=" + encodeURIComponent(msg);
+      el.innerHTML = `
+        <div class="top">
+          <div>
+            <h3 class="name"></h3>
+            <div class="meta"></div>
+            ${b.phone ? `<div class="phone">${fmt(b.phone)}</div>` : ""}
+            ${b.note ? `<div class="note"></div>` : ""}
+          </div>
+          <label class="chk"><input type="checkbox" id="sent-${b.id}" ${sent[b.id]?"checked":""}> Sent</label>
+        </div>
+        <div class="btns">
+          ${b.phone ? `<a class="btn text" href="${smsHref}">Text</a><a class="btn" href="tel:+1${b.phone}">Call</a>` : `<span class="btn" style="grid-column:span 2;opacity:.6">No phone listed</span>`}
+          <a class="btn" href="${b.url || BASE + b.id + "/"}" target="_blank" rel="noopener">Site</a>
+        </div>
+        <details><summary>See message</summary><div class="msg"></div><button class="copy" type="button">Copy message</button></details>`;
+      el.querySelector(".name").textContent = b.name;
+      el.querySelector(".meta").textContent = [b.area, b.rating].filter(Boolean).join(" · ");
+      if(b.note) el.querySelector(".note").textContent = b.note;
+      el.querySelector(".msg").textContent = msg;
+      const box = el.querySelector("input");
+      box.addEventListener("change",()=>{ sent[b.id]=box.checked; if(!box.checked) delete sent[b.id]; save(); el.classList.toggle("sent",box.checked); progress(); });
+      const t = el.querySelector(".btn.text");
+      if(t) t.addEventListener("click",()=>{ sent[b.id]=true; box.checked=true; el.classList.add("sent"); save(); progress(); });
+      const c = el.querySelector(".copy");
+      c.addEventListener("click",async()=>{
+        try{ await navigator.clipboard.writeText(msg); c.textContent="Copied"; }
+        catch(e){ const r=document.createRange(); r.selectNodeContents(el.querySelector(".msg")); const s=getSelection(); s.removeAllRanges(); s.addRange(r); c.textContent="Selected, now copy"; }
+        setTimeout(()=>c.textContent="Copy message",2000);
+      });
+      list.append(el);
+    });
+  });
+  progress();
+}
+function progress(){
+  const n = BIZ.filter(b=>sent[b.id]).length;
+  document.getElementById("count").textContent = n + " of " + BIZ.length + " sent";
+  document.getElementById("fill").style.width = (n/BIZ.length*100) + "%";
+}
+render();
+</script>
+</body>
+</html>
