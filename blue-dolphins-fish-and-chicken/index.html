@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="robots" content="noindex">
 <title>Blue Dolphin's Fish &amp; Chicken · Fried Fish, Wings &amp; Phillys on Baseline Rd, Little Rock</title>
 <meta name="description" content="Blue Dolphin's Fish &amp; Chicken at 4920 Baseline Rd, Little Rock. Catfish, shrimp, wings, family trays and Philly steaks. Open every day 10 AM–11 PM. (501) 570-8383.">
@@ -16,66 +16,73 @@
 <link rel="preload" as="image" href="img/real-9.jpg">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"SeafoodRestaurant","name":"Blue Dolphin's Fish & Chicken","telephone":"(501) 570-8383","address":{"@type":"PostalAddress","streetAddress":"4920 Baseline Rd","addressLocality":"Little Rock","addressRegion":"AR","addressCountry":"US"},"aggregateRating":{"@type":"AggregateRating","ratingValue":"4.3","reviewCount":"751"}}</script>
 <style>
-:root{--bg:#EEF6FB;--ink:#0B2545;--ac:#29A8E0;--ac2:#0F5C99;--dk:#0B2545;--lt:#EEF6FB;--mute:rgba(127,127,127,.9);--s2:16px;--s3:24px;--s4:48px;--s5:100px;--max:1180px}
+:root{--bg:#EEF6FB;--ink:#0B2545;--ac:#29A8E0;--ac2:#0F5C99;--dk:#0B2545;--lt:#EEF6FB;--on-lt:#0F5C99;--on-dk:#29A8E0;
+ --u:4px;--s1:calc(var(--u)*2);--s2:calc(var(--u)*4);--s3:calc(var(--u)*6);--s4:calc(var(--u)*12);--s5:calc(var(--u)*25);--max:1180px;
+ --line:color-mix(in srgb,var(--ink) 16%,transparent);--line-dk:color-mix(in srgb,var(--lt) 18%,transparent);
+ --ease:cubic-bezier(.16,1,.3,1);--fast:120ms;--base:220ms}
 *{box-sizing:border-box;margin:0}
 html{scroll-behavior:smooth;scroll-padding-top:80px}
 body{background:var(--bg);color:var(--ink);font:400 17px/1.65 "Bricolage Grotesque",system-ui,sans-serif;-webkit-font-smoothing:antialiased}
 img{display:block;max-width:100%}
-a{color:inherit}a:focus-visible{outline:3px solid var(--ac);outline-offset:3px}
+a{color:inherit}a:focus-visible{outline:3px solid var(--on-lt);outline-offset:3px}.top a:focus-visible,.hero a:focus-visible,.visit a:focus-visible,.callbar a:focus-visible{outline-color:var(--on-dk)}
 .d{font-family:"Bricolage Grotesque",system-ui,sans-serif;font-weight:800;letter-spacing:-.01em}
 .wrap{max-width:var(--max);margin:0 auto;padding:0 var(--s3)}
 .ribbon{background:#000;color:#bbb;font-size:12px;text-align:center;padding:6px 16px}
-.kick{font-weight:700;text-transform:uppercase;letter-spacing:.18em;font-size:12px;color:var(--ac)}
-.top{position:sticky;top:0;z-index:30;background:var(--dk);color:var(--lt);border-bottom:1px solid rgba(255,255,255,.08)}
+.kick{font-weight:700;text-transform:uppercase;letter-spacing:.16em;font-size:12px;color:var(--on-lt)}.hero .kick,.visit .kick{color:var(--on-dk)}
+.top{position:sticky;top:0;z-index:30;background:var(--dk);color:var(--lt);border-bottom:1px solid var(--line-dk)}
 .top .wrap{display:flex;align-items:center;justify-content:space-between;height:66px;gap:16px}
 .logo{font-size:23px;text-decoration:none;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.nav{display:flex;gap:32px;align-items:center;font-weight:600;font-size:15px}.nav a{text-decoration:none;opacity:.85}
-.pill{background:var(--ac);color:var(--dk)!important;opacity:1!important;padding:10px 18px;font-weight:700;white-space:nowrap}
+.nav{display:flex;gap:var(--s4);align-items:center;font-weight:600;font-size:15px}.nav a{text-decoration:none;opacity:.85;transition:opacity var(--fast) var(--ease)}.nav a:hover{opacity:1}
+.pill{background:var(--ac);color:var(--dk)!important;opacity:1!important;padding:10px var(--s2);font-weight:700;white-space:nowrap}
 .hero{display:grid;grid-template-columns:1.05fr .95fr;min-height:min(84vh,740px);background:var(--dk);color:var(--lt)}
 .hero-copy{padding:var(--s5) var(--s4) var(--s5) max(var(--s3),calc((100vw - var(--max))/2 + var(--s3)));display:flex;flex-direction:column;justify-content:center;min-width:0}
 h1{font-size:clamp(46px,7.4vw,112px);line-height:.92;margin-top:var(--s3)}
-h1 em{font-style:normal;color:var(--ac)}
+h1 em{color:var(--on-dk);font-style:normal}
 .lede{font-size:clamp(18px,1.6vw,21px);max-width:34ch;margin-top:var(--s3);opacity:.86}
-.acts{display:flex;flex-wrap:wrap;gap:12px;margin-top:var(--s4)}
-.btn{display:inline-block;text-decoration:none;font-weight:700;padding:16px 24px;border:2px solid var(--ac);transition:transform .15s}
-.btn:hover{transform:translateY(-2px)}.btn.f{background:var(--ac);color:var(--dk)}
-.proof{display:flex;align-items:baseline;gap:12px;margin-top:var(--s4);padding-top:var(--s3);border-top:1px solid rgba(255,255,255,.15)}
-.proof b{font-family:"Bricolage Grotesque",system-ui,sans-serif;font-weight:800;font-size:40px;color:var(--ac);line-height:1}
+.acts{display:flex;flex-wrap:wrap;gap:var(--s1);margin-top:var(--s4)}
+.btn{display:inline-block;text-decoration:none;font-weight:700;padding:var(--s2) var(--s3);border:2px solid var(--ac);transition:background var(--fast) var(--ease),transform var(--fast) var(--ease)}
+.btn:hover{background:color-mix(in srgb,var(--ac) 14%,transparent)}.btn:active{transform:scale(.98)}
+.btn.f{background:var(--ac);color:var(--dk)}.btn.f:hover{background:color-mix(in srgb,var(--ac) 88%,var(--lt))}
+.proof{display:flex;align-items:baseline;gap:var(--s1);margin-top:var(--s4);padding-top:var(--s3);border-top:1px solid var(--line-dk)}
+.proof b{font-family:"Bricolage Grotesque",system-ui,sans-serif;font-weight:800;font-size:40px;color:var(--on-dk);line-height:1}
 .proof span{opacity:.8}
 .hero-ph{position:relative;overflow:hidden;min-height:320px}.hero-ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-.badges{display:flex;flex-wrap:wrap;gap:8px;margin-top:var(--s3)}.badges span{border:1px solid rgba(255,255,255,.25);padding:6px 12px;font-size:13px;font-weight:600}
+.badges{display:flex;flex-wrap:wrap;gap:var(--s1);margin-top:var(--s3)}.badges span{border:1px solid var(--line-dk);padding:calc(var(--u)*1.5) calc(var(--u)*3);font-size:13px;font-weight:600}
 section{padding:var(--s5) 0}
 h2{font-size:clamp(36px,5vw,64px);line-height:1}
 .split{display:grid;grid-template-columns:1fr 1fr;gap:var(--s4);align-items:start}
 .list{margin-top:var(--s4);border-top:2px solid var(--ink)}
-.it{display:flex;justify-content:space-between;gap:var(--s3);align-items:baseline;padding:18px 0;border-bottom:1px solid color-mix(in srgb,var(--ink) 18%,transparent)}
-.it h3{font-size:20px;font-weight:700}.it p{font-size:15px;opacity:.7;margin-top:2px}.it b{font-family:"Bricolage Grotesque",system-ui,sans-serif;font-weight:800;font-size:22px;color:var(--ac2);white-space:nowrap}
+.it{display:flex;justify-content:space-between;gap:var(--s3);align-items:baseline;padding:calc(var(--u)*4.5) 0;border-bottom:1px solid var(--line)}
+.it h3{font-size:20px;font-weight:700}.it p{font-size:15px;opacity:.7;margin-top:2px}.it b{font-family:"Bricolage Grotesque",system-ui,sans-serif;font-weight:800;font-size:22px;color:var(--on-lt);white-space:nowrap}
 .note{font-size:14px;opacity:.7;margin-top:var(--s3)}
 .side img{width:100%;aspect-ratio:4/5;object-fit:cover}
-.gal{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:220px;gap:12px;margin-top:var(--s4)}
-.gal figure{overflow:hidden;background:#111}.gal img{width:100%;height:100%;object-fit:cover;transition:transform .6s}.gal figure:hover img{transform:scale(1.04)}
-.gal .g0{grid-column:span 2;grid-row:span 2}.gal .g3{grid-column:span 2}
-.cred{font-size:13px;opacity:.6;margin-top:12px}
+.gal{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:220px;gap:calc(var(--u)*3);margin-top:var(--s4)}
+.gal figure{overflow:hidden;background:var(--dk)}.gal img{width:100%;height:100%;object-fit:cover}
+.gal.n4 .g0{grid-column:span 2;grid-row:span 2}.gal.n4 .g3{grid-column:span 2}
+.gal.n3{grid-template-columns:2fr 1fr;grid-auto-rows:220px}.gal.n3 .g0{grid-row:span 2}
+.gal.n2{grid-template-columns:1fr 1fr;grid-auto-rows:380px}
+.cred{font-size:13px;opacity:.6;margin-top:calc(var(--u)*3)}
 .visit{background:var(--dk);color:var(--lt)}
-.hrs{display:grid;grid-template-columns:repeat(7,1fr);gap:6px;margin-top:var(--s3)}
-.hr{border:1px solid rgba(255,255,255,.2);padding:10px 4px;text-align:center;font-size:13px}.hr b{display:block;font-size:15px}.hr span{display:block;line-height:1.3;font-size:12px}
+.hrs{display:grid;grid-template-columns:repeat(7,1fr);gap:calc(var(--u)*1.5);margin-top:var(--s3)}
+.hr{border:1px solid var(--line-dk);padding:calc(var(--u)*2.5) var(--u);text-align:center;font-size:13px}.hr b{display:block;font-size:15px}.hr span{display:block;line-height:1.3;font-size:12px}
 .hr.today{background:var(--ac);color:var(--dk);border-color:var(--ac)}
-.live{display:inline-flex;gap:8px;align-items:center;font-weight:700;font-size:13px;text-transform:uppercase;letter-spacing:.1em;margin-top:var(--s3)}
-.live i{width:10px;height:10px;border-radius:50%;background:#888}.live.on i{background:#22c55e;box-shadow:0 0 0 4px rgba(34,197,94,.25)}
-.addr{font-size:24px;font-weight:700;line-height:1.35;margin:var(--s3) 0 8px}
+.live{display:flex;gap:var(--s1);align-items:center;font-weight:600;font-size:16px;margin-top:var(--s3);min-height:24px}
+.live i{flex:none;width:10px;height:10px;border-radius:50%;background:color-mix(in srgb,var(--lt) 45%,transparent)}.live.on i{background:#22c55e;box-shadow:0 0 0 4px rgba(34,197,94,.25)}
+.dir{display:inline-block;margin-top:var(--s2);font-weight:700;color:var(--on-dk);text-underline-offset:4px}
+.addr{font-size:24px;font-weight:700;line-height:1.35;margin:var(--s3) 0 var(--s1)}
 .map{border:0;width:100%;height:100%;min-height:380px;filter:grayscale(.25)}
 footer{background:#000;color:#999;padding:var(--s4) 0 120px;font-size:13px}footer .wrap{display:grid;gap:10px}footer b{color:#fff}
 .callbar{display:none}
 @media (max-width:900px){
- .nav a:not(.pill){display:none}.pill .long{display:none}
+ .nav a:not(.pill){display:none}.pill .long{display:none}.top .pill{display:none}
  .hero{grid-template-columns:1fr;min-height:0}.hero-ph{order:-1;height:320px}
  .hero-copy{padding:var(--s4) var(--s3)}
  .split{grid-template-columns:1fr}.side{display:none}
- .gal{grid-template-columns:1fr 1fr;grid-auto-rows:160px}.gal .g3{grid-column:auto}
- .hrs{grid-template-columns:repeat(4,1fr)}
+ .gal,.gal.n3,.gal.n2{grid-template-columns:1fr 1fr;grid-auto-rows:160px}.gal.n4 .g3{grid-column:span 2}.gal.n3 .g0{grid-row:auto;grid-column:span 2}
+ .hrs{grid-template-columns:1fr;gap:0}.hr{display:flex;justify-content:space-between;text-align:left;border:0;border-bottom:1px solid var(--line-dk);padding:calc(var(--u)*3) var(--s1)}.hr b,.hr span{font-size:15px}
  section{padding:72px 0}
- .callbar{display:flex;position:fixed;left:12px;right:12px;bottom:12px;z-index:40;gap:8px}
- .callbar a{flex:1;text-align:center;padding:15px;font-weight:700;text-decoration:none;background:var(--ac);color:var(--dk);box-shadow:0 8px 24px rgba(0,0,0,.35)}
+ .callbar{display:flex;position:fixed;left:calc(var(--u)*3);right:calc(var(--u)*3);bottom:max(calc(var(--u)*3),env(safe-area-inset-bottom));z-index:40;gap:var(--s1)}
+ .callbar a{flex:1;text-align:center;padding:var(--s2);font-weight:700;text-decoration:none;background:var(--ac);color:var(--dk);box-shadow:0 8px 24px rgba(0,0,0,.3)}.callbar a:active{transform:scale(.98)}
  .callbar a+a{background:var(--dk);color:var(--lt);flex:.7}
 }
 @media (prefers-reduced-motion:reduce){*{transition:none!important}html{scroll-behavior:auto}}
@@ -93,7 +100,7 @@ footer{background:#000;color:#999;padding:var(--s4) 0 120px;font-size:13px}foote
   <p class="kick">Fish · Chicken · Wings · Baseline Rd</p>
   <h1 class="d">Fried catfish, wings &amp; <em>phillys</em> till 11.</h1>
   <p class="lede">Catfish steaks and fillets, jumbo shrimp, frog legs and wings by the dozen, fried to order on Baseline Road. Open seven days a week from 10 in the morning to 11 at night, with family trays for the whole crew.</p>
-  <div class="acts"><a class="btn f" href="tel:+15015708383">Call (501) 570-8383</a><a class="btn" href="#visit">Get directions</a></div>
+  <div class="acts"><a class="btn f" href="tel:+15015708383">Call (501) 570-8383</a><a class="btn" href="https://www.google.com/maps/dir/?api=1&destination=Blue%20Dolphin's%20Fish%20%26%20Chicken%2C%204920%20Baseline%20Rd%2C%20Little%20Rock%2C%20AR%2072209" target="_blank" rel="noopener">Get directions</a></div>
   <div class="badges"><span>Open daily 10–11</span><span>Takeout</span><span>Family trays</span><span>Catering</span></div>
   <div class="proof"><b>4.3★</b><span>751 Google reviews</span></div>
  </div>
@@ -160,7 +167,7 @@ footer{background:#000;color:#999;padding:var(--s4) 0 120px;font-size:13px}foote
  <div class="wrap">
   <p class="kick">Photos</p>
   <h2 class="d" style="margin-top:12px">Hot out the fryer</h2>
-  <div class="gal"><figure class="g0"><img src="img/real-1.jpg" alt="Blue Dolphins storefront at 4920 Baseline Rd" loading="lazy"></figure><figure class="g1"><img src="img/real-7.jpg" alt="Lemon pepper wings" loading="lazy"></figure><figure class="g2"><img src="img/real-3.jpg" alt="Philly steak with peppers and cheese" loading="lazy"></figure><figure class="g3"><img src="img/real-8.jpg" alt="Dessert case with cakes and cheesecake" loading="lazy"></figure></div>
+  <div class="gal n4"><figure class="g0"><img src="img/real-1.jpg" alt="Blue Dolphins storefront at 4920 Baseline Rd" loading="lazy"></figure><figure class="g1"><img src="img/real-7.jpg" alt="Lemon pepper wings" loading="lazy"></figure><figure class="g2"><img src="img/real-3.jpg" alt="Philly steak with peppers and cheese" loading="lazy"></figure><figure class="g3"><img src="img/real-8.jpg" alt="Dessert case with cakes and cheesecake" loading="lazy"></figure></div>
   <p class="cred">Photos from Blue Dolphin's Fish &amp; Chicken's public Google listing.</p>
  </div>
 </section>
@@ -171,8 +178,9 @@ footer{background:#000;color:#999;padding:var(--s4) 0 120px;font-size:13px}foote
    <p class="kick">Visit</p>
    <h2 class="d" style="margin-top:12px">Come see us</h2>
    <p class="addr">4920 Baseline Rd, Little Rock, AR 72209</p>
-   <p><a href="tel:+15015708383" style="color:var(--ac);font-weight:700;font-size:20px">(501) 570-8383</a></p>
-   <span class="live" id="live"><i></i><span id="livetxt">Hours</span></span><div class="hrs" id="hrs"><div class="hr" data-d="0"><b>Sun</b><span>10 AM–11 PM</span></div><div class="hr" data-d="1"><b>Mon</b><span>10 AM–11 PM</span></div><div class="hr" data-d="2"><b>Tue</b><span>10 AM–11 PM</span></div><div class="hr" data-d="3"><b>Wed</b><span>10 AM–11 PM</span></div><div class="hr" data-d="4"><b>Thu</b><span>10 AM–11 PM</span></div><div class="hr" data-d="5"><b>Fri</b><span>10 AM–11 PM</span></div><div class="hr" data-d="6"><b>Sat</b><span>10 AM–11 PM</span></div></div>
+   <p><a href="tel:+15015708383" style="color:var(--on-dk);font-weight:700;font-size:20px">(501) 570-8383</a></p>
+   <p class="live" id="live"><i></i><span id="livetxt">Hours this week</span></p><div class="hrs" id="hrs"><div class="hr" data-d="0"><b>Sun</b><span>10 AM–11 PM</span></div><div class="hr" data-d="1"><b>Mon</b><span>10 AM–11 PM</span></div><div class="hr" data-d="2"><b>Tue</b><span>10 AM–11 PM</span></div><div class="hr" data-d="3"><b>Wed</b><span>10 AM–11 PM</span></div><div class="hr" data-d="4"><b>Thu</b><span>10 AM–11 PM</span></div><div class="hr" data-d="5"><b>Fri</b><span>10 AM–11 PM</span></div><div class="hr" data-d="6"><b>Sat</b><span>10 AM–11 PM</span></div></div>
+   <a class="dir" href="https://www.google.com/maps/dir/?api=1&destination=Blue%20Dolphin's%20Fish%20%26%20Chicken%2C%204920%20Baseline%20Rd%2C%20Little%20Rock%2C%20AR%2072209" target="_blank" rel="noopener">Get directions in Google Maps →</a>
   </div>
   <iframe class="map" title="Map to Blue Dolphin's Fish &amp; Chicken" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://maps.google.com/maps?q=4920%20Baseline%20Rd%2C%20Little%20Rock%2C%20AR%2072209&z=15&output=embed"></iframe>
  </div>
@@ -182,7 +190,7 @@ footer{background:#000;color:#999;padding:var(--s4) 0 120px;font-size:13px}foote
  <p><b>Blue Dolphin's Fish &amp; Chicken</b> · 4920 Baseline Rd, Little Rock, AR 72209 · (501) 570-8383</p>
  <p>Preview site. Details and photos from public listings; the owner confirms everything before launch.</p>
 </div></footer>
-<div class="callbar"><a href="tel:+15015708383">Call (501) 570-8383</a><a href="#visit">Directions</a></div>
+<div class="callbar"><a href="tel:+15015708383">Call (501) 570-8383</a><a href="https://www.google.com/maps/dir/?api=1&destination=Blue%20Dolphin's%20Fish%20%26%20Chicken%2C%204920%20Baseline%20Rd%2C%20Little%20Rock%2C%20AR%2072209" target="_blank" rel="noopener">Directions</a></div>
 <script>
 (function(){try{
  const H={"0":[[600,1380]],"1":[[600,1380]],"2":[[600,1380]],"3":[[600,1380]],"4":[[600,1380]],"5":[[600,1380]],"6":[[600,1380]]};
@@ -190,8 +198,11 @@ footer{background:#000;color:#999;padding:var(--s4) 0 120px;font-size:13px}foote
  const g=t=>p.find(x=>x.type===t).value;const d=['Sun','Mon','Tue','Wed','Thu','Fri','Sat'].indexOf(g('weekday'));
  const m=(+g('hour')%24)*60+(+g('minute'));
  const c=document.querySelector('#hrs [data-d="'+d+'"]');if(c)c.classList.add('today');
- const r=H[d]||[];const open=r.some(([a,b])=>m>=a&&m<b);
- document.getElementById('livetxt').textContent=open?'Open now':'Closed now';if(open)document.getElementById('live').classList.add('on');
+ const t=x=>{x%=1440;const h=Math.floor(x/60),mm=x%60;return (h%12||12)+(mm?':'+String(mm).padStart(2,'0'):'')+(h<12?' AM':' PM')};
+ const D=['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];const r=H[d]||[];const now=r.find(([a,b])=>m>=a&&m<b);let txt;
+ if(now)txt='Open now · until '+t(now[1]);
+ else{for(let k=0;k<8&&!txt;k++){const dd=(d+k)%7;const nx=(H[dd]||[]).find(([a])=>k>0||a>m);if(nx)txt='Closed now · opens '+(k===0?'today':k===1?'tomorrow':D[dd])+' at '+t(nx[0]);}}
+ document.getElementById('livetxt').textContent=txt||'Call for hours';if(now)document.getElementById('live').classList.add('on');
 }catch(e){}})();
 </script>
 </body>
