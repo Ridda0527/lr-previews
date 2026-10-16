@@ -30,5 +30,124 @@
   "fb": "100049450518727",
   "kind": "food",
   "angle": "facebook only"
+ },
+ {
+  "id": "blue-dolphins-fish-and-chicken",
+  "name": "Blue Dolphin's Fish & Chicken",
+  "area": "Baseline Rd",
+  "rating": "4.3★ (751)",
+  "phone": "5015708383",
+  "fb": "bluedolphinsfishandchicken",
+  "kind": "food",
+  "angle": "facebook only"
+ },
+ {
+  "id": "lux-eyebrow-threading-spa",
+  "name": "Lux Eyebrow Threading & Spa",
+  "area": "Mabelvale Plaza Dr",
+  "rating": "4.8★ (355)",
+  "phone": "5012971748",
+  "ig": "luxeyebrowthreading",
+  "kind": "service",
+  "angle": "no website"
+ },
+ {
+  "id": "hbs-bar-b-q",
+  "name": "H.B.'s Bar-B-Q",
+  "area": "Lancaster Rd",
+  "rating": "4.5★ (271)",
+  "phone": "5015651930",
+  "fb": "HBsBarBQ",
+  "kind": "food",
+  "angle": "facebook only"
+ },
+ {
+  "id": "afrobites",
+  "name": "AfroBites",
+  "area": "Wright Ave",
+  "rating": "4.9★ (253)",
+  "phone": "5014838721",
+  "ig": "weareafrobites",
+  "fb": "afrobitesLR",
+  "kind": "food",
+  "angle": "facebook only"
+ },
+ {
+  "id": "dales-used-tires",
+  "name": "Dale's Used Tires",
+  "area": "Colonel Glenn Rd",
+  "rating": "4.3★ (412)",
+  "phone": "5015686932",
+  "kind": "service",
+  "angle": "no website"
+ },
+ {
+  "id": "la-vaquera-taqueria",
+  "name": "La Vaquera Taquería",
+  "area": "Chicot Rd",
+  "rating": "4.4★ (162)",
+  "phone": "5015653108",
+  "fb": "lavaquerataqueria",
+  "kind": "food",
+  "angle": "facebook only"
+ },
+ {
+  "id": "fat-boys-killer-bar-b-q",
+  "name": "Fat Boys Killer Bar B-Q",
+  "area": "Arch St",
+  "rating": "4.6★ (150)",
+  "phone": "5018884998",
+  "kind": "food",
+  "angle": "no website"
+ },
+ {
+  "id": "waxing-and-threading-studio",
+  "name": "Waxing and Threading Studio",
+  "area": "Colonel Glenn Rd",
+  "rating": "4.8★ (78)",
+  "phone": "5014003899",
+  "ig": "ptandws",
+  "kind": "service",
+  "open": "The website on your Google listing (waxingandthreadingthestudio.com) just goes to a parked domain page",
+  "angle": "broken site"
+ },
+ {
+  "id": "empire-cuts-barbershop",
+  "name": "Empire Cuts Barbershop",
+  "area": "John Barrow Rd",
+  "rating": "4.6★ (78)",
+  "phone": "5019045934",
+  "kind": "barber",
+  "angle": "booking page only"
+ },
+ {
+  "id": "grandpas-donuts",
+  "name": "Grandpa's Donuts",
+  "area": "Stagecoach Rd",
+  "rating": "4.8★ (111)",
+  "phone": "5012463576",
+  "kind": "food",
+  "angle": "no website"
+ },
+ {
+  "id": "el-canelo",
+  "name": "El Canelo",
+  "area": "Mabelvale Plaza Dr",
+  "rating": "4.5★ (192)",
+  "phone": "5019162018",
+  "ig": "elcanelolr",
+  "kind": "food",
+  "angle": "no website"
+ },
+ {
+  "id": "everything-hair",
+  "name": "Everything Hair",
+  "area": "Fair Park Blvd",
+  "rating": "4.9★ (87)",
+  "phone": "5013335823",
+  "ig": "braids_inlittlerock",
+  "kind": "service",
+  "open": "The website on your Google listing (braidandbraid.com) doesn't load: the secure link fails and the page behind it is a 404",
+  "angle": "broken site"
  }
 ]
